@@ -11,7 +11,7 @@ export default function Menu() {
     <>
      <TbMenu
       fontSize={23}
-      className="text-white"
+      className="text-white lg:hidden"
       onClick={openSidebar}
      />
     </>
