@@ -3,7 +3,7 @@
 export default function SettingsPage() {
   return (
     <section>
-      This is the settings page
+      <p className="text-black">This is the settings page</p>
     </section>
   )
 }
