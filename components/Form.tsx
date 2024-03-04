@@ -1,8 +1,10 @@
 "use client"
 
 import { useState, ChangeEvent, FormEvent } from "react"
+import { useAuthStore } from "@/store/AuthStore"
 
 export default function Form() {
+  const { signIn } = useAuthStore()
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -15,8 +17,7 @@ export default function Form() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    // invoke sign in function from 
-    // store to sign in
+    signIn(user)
     setUser({ email: "", password: ""})
   }
 

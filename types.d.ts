@@ -20,3 +20,15 @@ type Blog = {
     date_posted: string;
     author: string;
 }
+
+type AuthStore = {
+    isAuthenticated: boolean;
+    signIn: (user) => void;
+    signOut: () => void;
+    signUp: () => void;
+}
+
+type User = {
+    email: string;
+    password: string;
+}
