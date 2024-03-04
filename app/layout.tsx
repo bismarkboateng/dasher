@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 
-const inter = Inter({ subsets: ["latin"]})
+const inter = Inter({ subsets: ["cyrillic"]})
 
 export const metadata: Metadata = {
   title: "Dasher",
@@ -21,10 +21,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.className} relative lg:flex lg:flex-row`}>
-        <main className="lg:flex lg:flex-row lg:w-full">
+      <body className={inter.className}>
+        <main className="w-full lg:flex lg:flex-row">
          <Sidebar />
-         <section className="lg:flex-1">
+         <section className="w-full">
           <Navbar />
           {children}
          </section>
@@ -33,3 +33,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+{/* <main className="lg:flex lg:flex-row lg:w-full"> */}
