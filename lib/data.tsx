@@ -41,8 +41,8 @@ export const SidebarLinks = [
     },
     {
         icon: <RiLoginCircleFill fontSize={24} className="text-white font-bold" />,
-        name: "Log in",
-        link: "/login",
+        name: "sign-in",
+        link: "/sign-in",
         id: uuidv4(),
     },
 ]

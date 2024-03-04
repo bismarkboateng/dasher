@@ -4,7 +4,7 @@ import { Inter } from "next/font/google"
 import Navbar from "@/components/Navbar";
 
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+import RenderSidebar from "@/components/RenderSidebar";
 
 const inter = Inter({ subsets: ["cyrillic"]})
 
@@ -22,8 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="w-full lg:flex lg:flex-row">
-         <Sidebar />
+        <main className="relative w-full lg:flex lg:flex-row">
+         <RenderSidebar />
          <section className="w-full">
           <Navbar />
           {children}
@@ -33,5 +33,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-{/* <main className="lg:flex lg:flex-row lg:w-full"> */}

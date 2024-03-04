@@ -2,23 +2,20 @@
 
 import { MdOutlineDashboard } from "react-icons/md"
 import { IoCloseOutline } from "react-icons/io5"
-// import { VscMenu } from "react-icons/vsc"
 import Image from "next/image"
 import Link from "next/link"
 import { IoSettingsOutline } from "react-icons/io5"
 
 
-import { useSidebarStore } from "@/store/SidebarStore"
 import { SidebarLinks } from "@/lib/data"
+import { useSidebarStore } from "@/store/SidebarStore"
 
 export default function Sidebar() {
-  const { closeSidebar, isOpen } = useSidebarStore()
+  const { closeSidebar } = useSidebarStore()
 
 
   return (
-    <>
-    <section className="absolute top-0 overflow-scroll z-[1000] lg:static bg-[#141A29]
-    h-screen w-[75%] md:w-[40%] lg:w-[25%]">
+    <section className="w-full bg-[#141A29] h-screen overflow-scroll">
       <section className="flex flex-row items-center justify-between
         w-[90%] mx-auto mt-7">
         <div className="flex flex-row items-center gap-2">
@@ -58,10 +55,5 @@ export default function Sidebar() {
         <p className="text-white font-normal text-lg leading-[10px]">Settings</p>
       </section>
     </section>
-    </>
   )
 }
-
-
-{/* <section className="absolute lg:static z-[2000] top-0 h-screen overflow-scroll
-        w-[70%] md:w-[40%] lg:w-[27%] bg-[#141A29] shadow-xl" ></section> */}
