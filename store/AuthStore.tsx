@@ -1,5 +1,9 @@
 import { create } from "zustand"
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword  } from "firebase/auth"
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth  } from "firebase/auth"
+
+import { app } from "@/lib/firebase"
+
+const auth = getAuth()
 
 export const useAuthStore = create<AuthStore>((set) => ({
     isAuthenticated: false,
@@ -8,5 +12,23 @@ export const useAuthStore = create<AuthStore>((set) => ({
         // signInWithEmailAndPassword(auth, user.email, user.password)
     },
     signOut: () => {},
-    signUp: () => {},
+
+    signUp: (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+         // user is signed up
+          set({ isAuthenticated: true })
+          const user = userCredential.user
+        })
+        .catch((error) => {
+          const errorCode = error.code
+          const errorMessage = error.message
+          
+        });
+    },
 }))
+
+
+
+   
+

@@ -25,7 +25,7 @@ type AuthStore = {
     isAuthenticated: boolean;
     signIn: (user) => void;
     signOut: () => void;
-    signUp: () => void;
+    signUp: (email, passowrd) => void;
 }
 
 type User = {
