@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"
+import { Inter, Roboto } from "next/font/google"
 
 import Navbar from "@/components/Navbar";
 
 import "./globals.css";
 import RenderSidebar from "@/components/RenderSidebar";
 
-const inter = Inter({ subsets: ["cyrillic"]})
+const inter = Inter({ subsets: ["latin"]})
+const roboto = Roboto({ subsets: ["latin"], weight: "400"})
 
 export const metadata: Metadata = {
   title: "Dasher",
@@ -21,7 +22,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <main className="relative w-full lg:flex lg:flex-row">
          <RenderSidebar />
          <section className="w-full">
