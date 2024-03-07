@@ -1,5 +1,7 @@
 import { create } from "zustand"
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth"
+import {
+  signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut,
+  sendPasswordResetEmail, } from "firebase/auth"
 
 import { app, auth } from "@/lib/firebase"
 
@@ -36,7 +38,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
           uid: userObj.uid
         }
         set(state => ({...state, ...user}))
-        // set the local storage
+        localStorage.setItem("user", JSON.stringify(user))
         set(state => ({...state, signInLoadingState: "done"}))
         console.log(userObj)
       })
@@ -47,7 +49,27 @@ export const useAuthStore = create<AuthStore>((set) => ({
       });  
     },
 
-    handleSignOut: () => {}
+    handleSignOut: () => {
+      signOut(auth).then(() => {
+        set(state => ({...state, user: null}))
+        localStorage.clear()
+        console.log("Signed Out")
+      }).catch((error) => {
+        console.log(error)
+      });
+    },
+
+    handleResetPassword: (email) => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log("Password reset email sent!")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(error)
+      });
+
+    }
 }))
 
 

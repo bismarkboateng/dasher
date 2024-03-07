@@ -109,9 +109,9 @@ export default function Form() {
         />
         <label className="ml-1">Remember me</label>
       </div>
-      <p>
+      <Link href="/reset-password">
         Forgot password?
-      </p>
+      </Link>
      </div>
      <hr className="h-[1px] w-[90%] mx-auto bg-[#575555] mb-5"/>
      <div className="flex flex-col items-center justify-center">

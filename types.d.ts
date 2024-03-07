@@ -32,6 +32,7 @@ type AuthStore = {
     handleSignUp: (firstName, email, passowrd) => void;
     handleSignIn: (name, email, password) => void;
     handleSignOut: () => void;
+    handleResetPassword: (email) => void;
     signUpLoadingState: string;
     signInLoadingState: string;
     signUpError: string;

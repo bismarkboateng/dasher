@@ -5,6 +5,8 @@ import { IoCloseOutline } from "react-icons/io5"
 import Image from "next/image"
 import Link from "next/link"
 import { IoSettingsOutline } from "react-icons/io5"
+import { RiLoginCircleFill } from "react-icons/ri"
+import { useRouter } from "next/navigation"
 
 
 import { SidebarLinks } from "@/lib/data"
@@ -12,9 +14,15 @@ import { useSidebarStore } from "@/store/SidebarStore"
 import { useAuthStore } from "@/store/AuthStore"
 
 export default function Sidebar() {
-  const { closeSidebar } = useSidebarStore()
+  const closeSidebar = useSidebarStore(state => state.closeSidebar)
   const user = useAuthStore(state => state.user)
+  const handleSignOut = useAuthStore(state => state.handleSignOut)
+  const router = useRouter()
 
+  const onSignOut = () => {
+    handleSignOut()
+    router.push("/")
+  }
 
   return (
     <section className="w-full bg-[#141A29] h-screen overflow-scroll">
@@ -53,6 +61,29 @@ export default function Sidebar() {
           </p>
         </Link>
         ))}
+      </ul>
+      <ul>
+        {user ? (
+        <div className="flex flex-row items-center gap-2 mb-8
+        cursor-pointer ml-3" onClick={onSignOut}>
+          <div>
+            <RiLoginCircleFill fontSize={24} className="text-white font-bold" />
+          </div>
+          <p className="text-white font-normal text-lg leading-[10px]">
+            Sign Out
+          </p>
+        </div>
+        ) : (
+        <Link href="/sign-in" className="flex flex-row items-center gap-2 mb-8
+        cursor-pointer ml-3" onClick={closeSidebar}>
+          <div>
+            <RiLoginCircleFill fontSize={24} className="text-white font-bold" />
+          </div>
+          <p className="text-white font-normal text-lg leading-[10px]">
+            Sign in
+          </p>
+        </Link>
+        )}
       </ul>
       <section className="fixed bottom-4 left-4 flex flex-row items-center gap-2">
         <IoSettingsOutline fontSize={23} className="text-white font-bold" />
