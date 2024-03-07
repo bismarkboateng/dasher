@@ -21,14 +21,19 @@ type Blog = {
     author: string;
 }
 
-type AuthStore = {
-    isAuthenticated: boolean;
-    signIn: (user) => void;
-    signOut: () => void;
-    signUp: (email, passowrd) => void;
+type User = {
+    name: string;
+    email: string;
+    uid: string;
 }
 
-type User = {
-    email: string;
-    password: string;
+type AuthStore = {
+    user: User | null;
+    handleSignUp: (firstName, email, passowrd) => void;
+    handleSignIn: (name, email, password) => void;
+    handleSignOut: () => void;
+    signUpLoadingState: string;
+    signInLoadingState: string;
+    signUpError: string;
 }
+

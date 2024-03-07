@@ -1,12 +1,18 @@
 "use client"
 
-import { useState, ChangeEvent, FormEvent } from "react"
+import { useState, ChangeEvent, MouseEvent, MouseEventHandler } from "react"
 import Link from "next/link"
+import { TailSpin } from "react-loader-spinner"
+import { ToastContainer, toast } from "react-toastify"
+import { useRouter } from "next/navigation"
 
 import { useAuthStore } from "@/store/AuthStore"
 
 export default function Form() {
-  const { signIn } = useAuthStore()
+  const router = useRouter()
+  const handleSignIn = useAuthStore(state => state.handleSignIn)
+  const createdUser = useAuthStore(state => state.user)
+  const signInLoadingState = useAuthStore(state => state.signInLoadingState)
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -17,10 +23,47 @@ export default function Form() {
     setUser(prevUser => ({...prevUser, [name]: value }))
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: MouseEventHandler<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
-    signIn(user)
+    handleSignIn(createdUser?.name, user.email, user.password)
     setUser({ email: "", password: ""})
+    router.push("/profile")
+  }
+
+  let buttonState;
+
+  if (signInLoadingState === "loading") {
+    buttonState = (
+      <div className="flex flex-row items-center gap-1">
+        <p className="text-white text-xs">signing in to your account</p>
+        <TailSpin
+          visible={true}
+          height="10"
+          width="10"
+          color="#fff"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    )
+  } else if (signInLoadingState === "done") {
+    toast("Account Created Successfully")
+    buttonState = (
+      <div className="text-white text-xs">
+        <p>Signed In</p>
+        <ToastContainer />
+      </div>
+    )
+  } else {
+    buttonState = (
+      <button
+        className="bg-[#2C2C2C] text-white py-2 px-5 rounded-md cursor-pointer"
+        onClick={handleSubmit}>
+        Sign in
+      </button>
+    )
   }
 
   return (
@@ -76,12 +119,9 @@ export default function Form() {
         Dont have an account? <Link href="/sign-up">Create one</Link>
       </p>
      </div>
-     <button
-      className="bg-[#2C2C2C] text-white py-2 px-5 rounded-md cursor-pointer
-      ml-4 mt-8 mb-3"
-     >
-      Sign in
-     </button>
+     <div className="mt-6 mb-3 py-3 ml-4">
+      {buttonState}
+     </div>
     </form>
   )
 }

@@ -5,6 +5,5 @@ export const useSidebarStore = create<SidebarStore>((set) => ({
     openSidebar: () => set({ isOpen: true }),
     closeSidebar: () => {
         set({ isOpen: false })
-        console.log("closed")
     }
 }))

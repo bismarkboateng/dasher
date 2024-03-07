@@ -9,9 +9,11 @@ import { IoSettingsOutline } from "react-icons/io5"
 
 import { SidebarLinks } from "@/lib/data"
 import { useSidebarStore } from "@/store/SidebarStore"
+import { useAuthStore } from "@/store/AuthStore"
 
 export default function Sidebar() {
   const { closeSidebar } = useSidebarStore()
+  const user = useAuthStore(state => state.user)
 
 
   return (
@@ -42,11 +44,13 @@ export default function Sidebar() {
       <ul className="w-[90%] mx-auto mt-10">
         {SidebarLinks.map(link => (
         <Link href={link.link} key={link.id} className="flex flex-row items-center gap-2 mb-8
-        cursor-pointer">
+        cursor-pointer" onClick={closeSidebar}>
           <div>
             {link.icon}
           </div>
-          <p className="text-white font-normal text-lg leading-[10px]">{link.name}</p>
+          <p className="text-white font-normal text-lg leading-[10px]">
+            {link.name}
+          </p>
         </Link>
         ))}
       </ul>

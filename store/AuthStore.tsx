@@ -1,31 +1,53 @@
 import { create } from "zustand"
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth  } from "firebase/auth"
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth"
 
-import { app } from "@/lib/firebase"
+import { app, auth } from "@/lib/firebase"
 
-const auth = getAuth()
 
 export const useAuthStore = create<AuthStore>((set) => ({
-    isAuthenticated: false,
-    signIn: (user: User) => {
-        // follow this process to sign in a user
-        // signInWithEmailAndPassword(auth, user.email, user.password)
+    user: null,
+    signUpLoadingState: "",
+    signInLoadingState: "",
+    signUpError: "",
+    handleSignUp: (firstName, email, password) => {
+      set(state => ({...state, signUpLoadingState: "loading"}))
+      createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const userObj = userCredential.user;
+        set(state => ({...state, user: {name: firstName, email: "", uid: ""}}))
+        set(state => ({...state, signUpLoadingState: "done"}))
+        console.log(userObj)
+      })
+      .catch((error) => {
+        set(state => ({...state, signUpError: "error creating account"}))
+        const errorCode = error.code;
+        console.log(errorCode)
+      });
     },
-    signOut: () => {},
 
-    signUp: (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-         // user is signed up
-          set({ isAuthenticated: true })
-          const user = userCredential.user
-        })
-        .catch((error) => {
-          const errorCode = error.code
-          const errorMessage = error.message
-          
-        });
+    handleSignIn: (name, email, password) => {
+      set(state => ({...state, signInLoadingState: "loading"}))
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const userObj = userCredential.user;
+        const user = {
+          name,
+          email: userObj.email,
+          uid: userObj.uid
+        }
+        set(state => ({...state, ...user}))
+        // set the local storage
+        set(state => ({...state, signInLoadingState: "done"}))
+        console.log(userObj)
+      })
+      .catch((error) => {
+        set(state => ({...state, signUpError: "error signing in to account"}))
+        const errorCode = error.code;
+        console.log(errorCode)
+      });  
     },
+
+    handleSignOut: () => {}
 }))
 
 
