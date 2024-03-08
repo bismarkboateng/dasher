@@ -12,13 +12,13 @@ export default function YearDropDown() {
 
   return (
     <section className="text-white mt-5 md:mt-0 flex flex-col
-     items-center justify-center">
+     items-center justify-center mb-10">
       <select className="bg-[#141A29] text-white outline-none border
       border-[#2c2c2c] py-2 md:py-5"
        value={duration}
        onChange={(event) => setDuration(event.target.value)}
       >
-       <option className="bg-[#2c2c2c] pr-2">This year</option>
+       <option className="bg-[#2c2c2c] pr-2">THIS YEAR</option>
        <option className="bg-[#2c2c2c]">Last 30 days</option>
        <option className="bg-[#2c2c2c]">Last month</option>
        <option className="bg-[#2c2c2c]">Last year</option>
