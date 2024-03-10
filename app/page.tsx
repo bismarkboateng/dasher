@@ -1,12 +1,20 @@
-import Image from "next/image"
 
 import YearDropDown from "@/components/YearDropDown"
+import TotalSales from "@/components/TotalSales"
 import { analytics } from "@/lib/data"
+import { getUsers, getProducts } from "@/lib/getDataFromFirebase"
 
 
 
-export default function Home() {
+export default async function Home() {
 
+  const data = await getProducts()
+
+  // const content = (
+  //   <div>
+
+  //   </div>
+  // )
 
   return (
     <main className="bg-black h-screen pt-10">
@@ -40,6 +48,12 @@ export default function Home() {
           </div>
         </div>
        ))}
+      </section>
+      <section className="w-[85%] md:w-[95%] mx-auto mt-5">
+        <TotalSales />
+      </section>
+      <section>
+        
       </section>
     </main>
   );

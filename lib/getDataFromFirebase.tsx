@@ -13,17 +13,12 @@ const getData = async (collectionName: string) => {
 }
 
 
-export const getJeans = async () => {
-  const data = await getData("Jeans")
+export const getProducts = async () => {
+  const data  = await getData("products")
   return data
 }
 
-export const getShoes = async () => {
-  const data = await getData("shoes")
-  return data
-}
-
-export const getBlogs = async () => {
-  const data = await getData("blogs")
+export const getUsers = async () => {
+  const data = await getData("users")
   return data
 }
