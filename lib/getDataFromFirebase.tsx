@@ -19,6 +19,7 @@ export const getProducts = async () => {
 }
 
 export const getUsers = async () => {
-  const data = await getData("users")
-  return data
+  const response: UserFromFirebase[] = await getData("users")
+
+  return response
 }

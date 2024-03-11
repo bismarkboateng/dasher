@@ -9,10 +9,10 @@ export default function RenderSidebar() {
 
   return (
     <>
-     <div className="hidden lg:inline-flex overflow-scroll w-[75%] md:w-[40%] lg:w-[25%]">
+     <div className="hidden lg:inline-flex overflow-scroll z-[3000] w-[75%] md:w-[40%] lg:w-[25%]">
       <Sidebar />
      </div>
-     <div className="absolute w-[75%] md:w-[40%] top-0 z-[1000] lg:hidden">
+     <div className="absolute w-[75%] md:w-[40%] top-0 z-[3000] lg:hidden">
         {isOpen && <Sidebar />}
      </div>
     </>

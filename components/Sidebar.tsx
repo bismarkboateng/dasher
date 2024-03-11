@@ -25,7 +25,7 @@ export default function Sidebar() {
   }
 
   return (
-    <section className="w-full bg-[#141A29] h-screen overflow-scroll">
+    <section className="w-full bg-[#141A29] h-screen">
       <section className="flex flex-row items-center justify-between
         w-[90%] mx-auto mt-7">
         <div className="flex flex-row items-center gap-2">
@@ -85,7 +85,7 @@ export default function Sidebar() {
         </Link>
         )}
       </ul>
-      <section className="fixed bottom-4 left-4 flex flex-row items-center gap-2">
+      <section className="flex flex-row items-center gap-2 ml-3 mt-20">
         <IoSettingsOutline fontSize={23} className="text-white font-bold" />
         <p className="text-white font-normal text-lg leading-[10px]">Settings</p>
       </section>

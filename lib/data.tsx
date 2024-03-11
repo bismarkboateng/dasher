@@ -115,3 +115,54 @@ export const data = [
       amt: 2100,
     },
   ];
+
+
+export const productsRevenue = [
+  {
+    image: "https://assets.website-files.com/64ccf14b517838cac9de1391/64ce6c450b77087d65e84d38_Export-Square-Images2.jpg",
+    name: "iPhone 12 Pro",
+    price:"$5000",
+    id: uuidv4()
+  },
+  {
+    image: "https://assets.website-files.com/64ccf14b517838cac9de1391/64ce6c450b77087d65e84d38_Export-Square-Images2.jpg",
+    name: "iPhone 14 Pro",
+    price:"$6000",
+    id: uuidv4()
+  },
+  {
+    image: "https://assets.website-files.com/64ccf14b517838cac9de1391/64ce6c450b77087d65e84d38_Export-Square-Images2.jpg",
+    name: "iPhone Xr",
+    price:"$1500",
+    id: uuidv4()
+  },
+  {
+    image: "https://assets.website-files.com/64ccf14b517838cac9de1391/64ce6c450b77087d65e84d38_Export-Square-Images2.jpg",
+    name: "iPhone 11",
+    price:"$2000",
+    id: uuidv4()
+  },
+]
+
+export const salesPerProduct = [
+  {
+    name: "Nike",
+    total_sales: 400,
+  },
+  {
+    name: "Balenciaga",
+    total_sales: 800,
+  },
+  {
+    name: "Adidas",
+    total_sales: 1000,
+  },
+  {
+    name: "Puma",
+    total_sales: 1200,
+  },
+  {
+    name: "Reebok",
+    total_sales: 400,
+  },
+]

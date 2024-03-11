@@ -26,6 +26,17 @@ type User = {
     uid: string;
 }
 
+type UserFromFirebase = {
+    email: string;
+    first_name: string;
+    sales: {
+        price_per_unit: number;
+        product: string;
+        quantity: number;
+        total_price: number;
+    }
+}
+
 type AuthStore = {
     user: User | null;
     handleSignUp: (firstName, email, passowrd) => void;
