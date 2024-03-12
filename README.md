@@ -1,17 +1,23 @@
-# This is a Saas dashboard application
+<h2>Admin Dashboard application</h2>
+<br >
+<!-- <img src="medium-image.png" width="100%" alt="medium landing page" /> -->
+<hr >
 
-<h1>Follow these steps to run the project</h1>
+<h4>Description</h4>
 
-<p>I've assumed you already have node installed</p>
+<br >
 
-<article>
- 1. Run this command to clone the project
-  <code>
-    git clone https://github.com/bismarkboateng/dasher.git
-  </code>
- 
- 2. cd dahser
- 3. yarn && yarn dev
+<h4>Installation Guide</h4>
+I'll assume you already have <strong>Node</strong> installed.
 
- 4. The project will run on http://localhost:3000
-</article>
+Start by cloning the repo:
+
+```
+https://github.com/bismarkboateng/dasher.git
+cd dasher
+yarn
+yarn dev
+```
+
+select the link running on your development server to preview<br>
+the application
