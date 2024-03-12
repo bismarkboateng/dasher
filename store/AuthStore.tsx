@@ -68,8 +68,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
         const errorCode = error.code;
         console.log(error)
       });
-
-    }
+    },
 }))
 
 

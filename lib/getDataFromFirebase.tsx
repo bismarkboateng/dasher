@@ -19,7 +19,14 @@ export const getProducts = async () => {
 }
 
 export const getUsers = async () => {
-  const response: UserFromFirebase[] = await getData("users")
+  const querySnapshot = await getDocs(collection(database, "users"))
+  const usersList: UserFromFirebase[] = []
 
-  return response
+  querySnapshot.forEach((doc) => {
+    const data: UserFromFirebase = doc.data()
+    usersList.push(data)
+  })
+
+  return usersList
+
 }

@@ -4,6 +4,19 @@ type SidebarStore = {
     closeSidebar: () => void,
 }
 
+type ModalStoreType = {
+    isOpen: boolean,
+    openModal: () => void,
+    closeModal: () => void,
+    handleCreateUser: (first_name, email) => void,
+    loading: string;
+}
+
+type NewUserType = {
+    first_name: string;
+    email: string;
+}
+
 type Blog = {
     title: string;
     content: string;
