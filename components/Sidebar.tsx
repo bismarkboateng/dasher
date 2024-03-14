@@ -8,7 +8,6 @@ import { IoSettingsOutline } from "react-icons/io5"
 import { RiLoginCircleFill } from "react-icons/ri"
 import { useRouter } from "next/navigation"
 
-
 import { SidebarLinks } from "@/lib/data"
 import { useSidebarStore } from "@/store/SidebarStore"
 import { useAuthStore } from "@/store/AuthStore"
@@ -27,7 +26,7 @@ export default function Sidebar() {
   return (
     <section className="w-full bg-[#141A29] h-screen">
       <section className="flex flex-row items-center justify-between
-        w-[90%] mx-auto mt-7">
+        w-[90%] mx-auto pt-7">
         <div className="flex flex-row items-center gap-2">
         <MdOutlineDashboard fontSize={30} className="text-white"/>
         <h3 className="text-lg text-white font-semibold">DarkDasher</h3>
@@ -38,11 +37,11 @@ export default function Sidebar() {
       <section className="flex flex-col items-center justify-center
         mt-12">
         <Image
-        width={70}
-        height={70}
-        src={"https://assets.website-files.com/64ccf14b517838cac9de1391/64cfd6f858e01996be5eaee6_man%27s-grey-and-black-shirt-Square.jpg"}
-        alt="user image"
-        className="rounded-full"
+          width={70}
+          height={70}
+          src={"https://assets.website-files.com/64ccf14b517838cac9de1391/64cfd6f858e01996be5eaee6_man%27s-grey-and-black-shirt-Square.jpg"}
+          alt="user image"
+          className="rounded-full"
         />
         <h3 className="text-lg text-white font-medium leading-5 mt-2">John Doe</h3>
         <h6 className="text-[11px] text-[#D7D7D8] leading-[18px]">Sales Manager</h6>
@@ -85,7 +84,7 @@ export default function Sidebar() {
         </Link>
         )}
       </ul>
-      <section className="flex flex-row items-center gap-2 ml-3 mt-20">
+      <section className="flex flex-row items-center gap-2 ml-3 mt-10">
         <IoSettingsOutline fontSize={23} className="text-white font-bold" />
         <p className="text-white font-normal text-lg leading-[10px]">Settings</p>
       </section>
