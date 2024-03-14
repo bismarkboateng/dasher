@@ -12,6 +12,12 @@ type ModalStoreType = {
     loading: string;
 }
 
+type ProductModalType = {
+    isOpen: boolean,
+    handleOpenProductModal: () => void,
+    handleCloseProductModal: () => void,
+}
+
 type NewUserType = {
     first_name: string;
     email: string;
@@ -49,6 +55,7 @@ type UserFromFirebase = {
         total_price: number;
     }
 }
+
 
 type AuthStore = {
     user: User | null;

@@ -1,9 +1,11 @@
 import { collection, getDocs } from "firebase/firestore";
 import { database } from "@/lib/firebase";
 import TableHead from "@/components/TableHead"
+import RenderProductForm from "@/components/RenderProductForm";
 
 export default async function Products() {
   let products = [];
+  
 
   const querySnapshot = await getDocs(collection(database, "products"));
   querySnapshot.forEach((doc) => {
@@ -13,7 +15,8 @@ export default async function Products() {
   const thStyles = "text-left py-1"
 
   return (
-    <section className="w-full bg-black h-screen text-white">
+    <section className="relative w-full bg-black h-screen text-white">
+      <RenderProductForm />
       <TableHead />
       <section className="min-w-[500px] overflow-x-hidden h-[40vh]">
         <table className="border-collapse text-base ml-3 w-full h-full">

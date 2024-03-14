@@ -1,5 +1,5 @@
 
-import Form from "@/components/Form"
+import SignIn from "@/components/SignIn"
 
 export default function SignInPage() {
   return (
@@ -11,7 +11,7 @@ export default function SignInPage() {
           Sign in to gain full access to your information
         </p>
       </section>
-      <Form />
+      <SignIn />
     </section>
   )
 }
