@@ -21,7 +21,7 @@ export const SidebarLinks = [
     {
         icon: <TbTriangleSquareCircle fontSize={24} className="text-white font-bold"  />,
         name: "Products",
-        link: "/product-sales",
+        link: "/products",
         id: uuidv4(),
     },
     {

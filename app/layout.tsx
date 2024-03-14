@@ -1,15 +1,14 @@
 "use client"
 
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google"
+import { Roboto } from "next/font/google"
 
-import Navbar from "@/components/Navbar";
 
-import "./globals.css";
 import { useSidebarStore } from "@/store/SidebarStore";
+import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"]})
 const roboto = Roboto({ subsets: ["latin"], weight: "400"})
 
 const metadata: Metadata = {
