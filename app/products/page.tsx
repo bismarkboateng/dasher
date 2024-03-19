@@ -16,10 +16,11 @@ export default async function Products() {
 
   return (
     <section className="relative w-full bg-black h-screen text-white">
-      <RenderProductForm />
-      <TableHead />
-      <section className="min-w-[500px] overflow-x-hidden h-[40vh]">
-        <table className="border-collapse text-base ml-3 w-full h-full">
+      {/* <RenderProductForm /> */}
+      {/* <TableHead /> */}
+
+      <section className="overflow-x-hidden h-[40vh]">
+        <table className="border-collapse overflow-x-scroll text-base ml-3 w-[100%] md:w-[95%] mx-auto h-full">
           <thead className="mb-2">
             <tr>
               <th className={thStyles}>Name</th>

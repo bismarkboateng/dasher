@@ -34,9 +34,9 @@ type Product = {
     product_name: string;
     brand: string;
     color: string;
-    size: number;
-    price: number;
-    quantity: number;
+    size: string;
+    price: string;
+    quantity: string;
 }
 
 type User = {
