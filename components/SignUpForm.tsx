@@ -72,8 +72,8 @@ export default function SignUpForm() {
 
 
   return (
-    <form className="bg-[#141A29] w-[85%] md:w-[60%] xl:w-[45%] mt-10 pt-10
-    ml-5 md:ml-10 rounded-md mb-10 shadow-xl">
+    <form className="bg-[#141A29] w-[95%] md:w-[50%] lg:w-[70%] xl:w-[60%] mt-10 pt-10
+    ml-2 md:ml-10 rounded-md mb-10 shadow-xl">
 
      <div className="w-[90%] mx-auto mb-5 flex flex-row items-center justify-between">
       <label htmlFor="first name" className="">First Name</label>

@@ -84,10 +84,10 @@ export default function Sidebar() {
         </Link>
         )}
       </ul>
-      <section className="flex flex-row items-center gap-2 ml-3 mt-10">
+      {/* <section className="flex flex-row items-center gap-2 ml-3 mt-10">
         <IoSettingsOutline fontSize={23} className="text-white font-bold" />
         <p className="text-white font-normal text-lg leading-[10px]">Settings</p>
-      </section>
+      </section> */}
     </section>
   )
 }

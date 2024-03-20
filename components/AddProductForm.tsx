@@ -1,9 +1,11 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useProductModal } from "@/store/ProductModal";
 import Input from "./Input";
 
 export default function AddProductForm() {
+  const handleCloseProductModal = useProductModal(state => state.handleCloseProductModal)
   const [product, setProduct] = useState({} as Product);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -13,12 +15,14 @@ export default function AddProductForm() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    // submit to firebase backend
     console.log(product)
   }
 
   return (
     <section className="bg-[#141A29] border border-[#2c2c2c] p-3 w-[70%]">
-      <h1 className="text-white text-lg font-normal">Add Product</h1>
+      <h1 className="text-white text-2xl font-bold">Add Product</h1>
+      <hr className="mb-8 mt-8"/>
       <form className="" onSubmit={handleSubmit}>
         <Input
           divClass="flex flex-row items-center justify-between mt-2"
@@ -99,11 +103,12 @@ export default function AddProductForm() {
           placeholder="color"
         />
 
-        <div className="flex flex-row items-center justify-between w-[85%] mx-auto">
-          <button className="bg-[#786eff] text-white py-1 px-4 rounded-md
+        <div className="flex flex-row items-center justify-between w-[85%] mx-auto mt-10
+        mb-4">
+          <button className="bg-[#786eff] text-white py-2 px-8 rounded-md
            text-sm" onClick={() => {}}>Submit</button>
-          <button className="bg-[#2c2c2c] text-white py-1 px-4 rounded-md
-         text-sm" onClick={() => {}}>Cancel</button>
+          <button className="bg-[#2c2c2c] text-white py-2 px-8 rounded-md
+         text-sm" onClick={() => handleCloseProductModal()}>Cancel</button>
         </div>
       </form>
     </section>
