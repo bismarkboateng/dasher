@@ -24,6 +24,7 @@ type NewUserType = {
 }
 
 type Blog = {
+    id: string;
     title: string;
     content: string;
     date_posted: string;
@@ -56,7 +57,6 @@ type UserFromFirebase = {
     }
 }
 
-
 type AuthStore = {
     user: User | null;
     handleSignUp: (firstName, email, passowrd) => void;
@@ -68,3 +68,8 @@ type AuthStore = {
     signUpError: string;
 }
 
+type SelectType = {
+    selectedValue: string;
+    data: [],
+    getSelectedValueInfoFromFirebase: () => void;
+}

@@ -65,103 +65,105 @@ export default function AddProductForm() {
     )
   } else {
     buttonState = (
-      <button className="bg-[#786eff] text-white py-2 px-8 rounded-md
-      text-sm">Submit</button>
+      <button className="bg-[#786eff] text-white py-2 px-9 md:px-12 rounded-md
+      text-sm font-bold">Submit</button>
     )
   }
 
   return (
-    <section className="bg-[#141A29] border border-[#2c2c2c] p-3 w-[70%]
-    absolute top-0 left-0 ml-[10%] mt-[10%]">
-      <h1 className="text-white text-2xl font-bold">Add Product</h1>
-      <hr className="mb-8 mt-8"/>
-      <form className="" onSubmit={handleSubmit}>
+    <>
+    <div className="text-white absolute top-0 left-0 bottom-0 right-0 w-full h-[100%] backdrop-blur-sm"/>
+    <section className="bg-[#141A29] border border-[#2c2c2c] p-3 w-[75%] md:w-[40%]
+    lg:w-[50%] xl:w-[40%] absolute top-0 z-[1000] left-0 ml-[10%] md:ml-[30%] mt-[6%] mb-10">
+      <h1 className="text-white text-2xl font-bold text-center">Add Product</h1>
+      <div className="mt-2 mb-2 xl:mt-3 xl:mb-2 h-[0.5px] w-[100%] bg-[#ccc]"/>
+      <form className="flex flex-col items-center w-[100%]" onSubmit={handleSubmit}>
         <Input
-          divClass="flex flex-row items-center justify-between mt-2"
+          divClass="flex flex-col items-start mb-2 w-[100%] justify-between"
           inputLabel="Product Name"
-          labelClass=""
+          labelClass="text-white"
           type="text"
           id="product_name"
           name="product_name"
           value={product.product_name}
           onChange={handleChange}
           inputClass="outline-none border border-[#ccc] py-1 pl-1
-          rounded-md text-black"
+          rounded-md text-black w-[100%]"
           placeholder="Product name"
         />
         <Input
-          divClass="flex flex-row items-center justify-between mt-2"
+          divClass="flex flex-col items-start mb-2 justify-between mt-3 w-[100%]"
           inputLabel="Brand"
-          labelClass=""
+          labelClass="text-white"
           type="text"
           id="brand"
           name="brand"
           value={product.brand}
           onChange={handleChange}
           inputClass="outline-none border border-[#ccc] py-1 pl-1
-          rounded-md text-black"
+          rounded-md text-black w-[100%]"
           placeholder="Brand"
         />
         <Input
-          divClass="flex flex-row items-center justify-between mt-2"
+          divClass="flex flex-col items-start mb-2 justify-between mt-3 w-[100%]"
           inputLabel="Quantity"
-          labelClass=""
+          labelClass="text-white"
           type="text"
           id="quantity"
           name="quantity"
           value={product.quantity}
           onChange={handleChange}
           inputClass="outline-none border border-[#ccc] py-1 pl-1
-          rounded-md text-black"
+          rounded-md text-black w-[100%]"
           placeholder="quantity"
         />
         <Input
-          divClass="flex flex-row items-center justify-between mt-2"
+          divClass="flex flex-col items-start mb-2 justify-between mt-3 w-[100%]"
           inputLabel="Size"
-          labelClass=""
+          labelClass="text-white"
           type="text"
           id="size"
           name="size"
           value={product.size}
           onChange={handleChange}
           inputClass="outline-none border border-[#ccc] py-1 pl-1
-          rounded-md text-black"
+          rounded-md text-black w-[100%]"
           placeholder="size"
         />
         <Input
-          divClass="flex flex-row items-center justify-between mt-2"
+          divClass="flex flex-col items-start mb-2 justify-between mt-3 w-[100%]"
           inputLabel="Price"
-          labelClass=""
+          labelClass="text-white"
           type="text"
           id="price"
           name="price"
           value={product.price}
           onChange={handleChange}
           inputClass="outline-none border border-[#ccc] py-1 pl-1
-          rounded-md text-black"
+          rounded-md text-black w-[100%]"
           placeholder="price"
         />
         <Input
-          divClass="flex flex-row items-center justify-between mt-2"
+          divClass="flex flex-col items-start mb-2 justify-between mt-2 w-[100%]"
           inputLabel="Color"
-          labelClass=""
+          labelClass="text-white"
           type="text"
           id="color"
           name="color"
           value={product.color}
           onChange={handleChange}
           inputClass="outline-none border border-[#ccc] py-1 pl-1
-          rounded-md text-black"
+          rounded-md text-black w-[100%]"
           placeholder="color"
         />
 
-        <div className="flex flex-row items-center justify-between w-[85%] mx-auto mt-10
-        mb-4">
+        <div className="flex w-[100%] justify-between mt-4">
           {buttonState}
-          <button className="bg-[#2c2c2c] text-white py-2 px-8 rounded-md
-         text-sm" onClick={() => handleCloseProductModal()}>Cancel</button>
+          <button className="bg-[#2c2c2c] text-white py-2 px-9 md:px-12 rounded-md
+         text-sm font-bold" onClick={() => handleCloseProductModal()}>Cancel</button>
         </div>
       </form>
     </section>
+    </>
   );
 }

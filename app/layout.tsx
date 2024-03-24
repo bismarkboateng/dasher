@@ -13,6 +13,7 @@ const roboto = Roboto({ subsets: ["latin"], weight: "400"})
 
 const metadata: Metadata = {
   title: "Dasher",
+  description: "Home page of a Saas dashboard application"
 };
 
 export default function RootLayout({
