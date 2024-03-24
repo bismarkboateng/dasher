@@ -27,7 +27,7 @@ export default function SignUpForm() {
     setUser(prevUser => ({...prevUser, [name]: value }))
   }
 
-  const handleSubmit = (event: MouseEventHandler<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     handleSignUp(user.firstName, user.email, user.password)
     router.push("/sign-in")
@@ -62,8 +62,7 @@ export default function SignUpForm() {
   } else {
     buttonState = (
       <button
-        className="bg-[#2C2C2C] text-white py-2 px-5 rounded-md cursor-pointer"
-        onClick={handleSubmit}>
+        className="bg-[#2C2C2C] text-white py-2 px-5 rounded-md cursor-pointer">
         Sign up
       </button>
     )
@@ -73,7 +72,7 @@ export default function SignUpForm() {
 
   return (
     <form className="bg-[#141A29] w-[95%] md:w-[50%] lg:w-[70%] xl:w-[60%] mt-10 pt-10
-    ml-2 md:ml-10 rounded-md mb-10 shadow-xl">
+    ml-2 md:ml-10 rounded-md mb-10 shadow-xl" onSubmit={handleSubmit}>
 
      <div className="w-[90%] mx-auto mb-5 flex flex-row items-center justify-between">
       <label htmlFor="first name" className="">First Name</label>

@@ -1,46 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
 import {
-  Select, SelectContent, SelectGroup,
-  SelectItem, SelectTrigger,
-  SelectValue
-} from "@/components/ui/select"
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useSelectStore } from "@/store/SelectStore";
 
 export default function YearDropDown() {
-  const [duration, setDuration] = useState("")
+  const time = useSelectStore((state) => state.time);
+  const handleSetTime = useSelectStore((state) => state.handleSetTime);
 
-  // console.log(duration)
-  // useEffect(() => {
-  //   console.log(duration)
-  // }, [duration])
-
-  // const handleSelectChange = (event) => {
-  //   setDuration(event.target.value)
-  // }
-
-  useEffect(() => {
-    console.log(duration)
-  }, [duration])
-
+  const handleSelectChange = (value: string) => {
+    handleSetTime(value);
+  };
 
   return (
-    // <section className="text-white mt-5 md:mt-0 flex flex-col
-    //  items-center justify-center mb-10">
-    //   <select className="bg-[#141A29] text-white outline-none border
-    //   border-[#2c2c2c] py-2 md:py-5"
-    //    value={duration}
-    //    onChange={(event) => setDuration(event.target.value)}
-    //   >
-    //    <option className="bg-[#2c2c2c] pr-2">THIS YEAR</option>
-    //    <option className="bg-[#2c2c2c]">Last 30 days</option>
-    //    <option className="bg-[#2c2c2c]">Last month</option>
-    //    <option className="bg-[#2c2c2c]">Last year</option>
-    //   </select>
-    // </section>
-    <div className="flex items-center justify-center
-    my-5">
-      <Select>
+    <div
+      className="flex items-center justify-center
+    my-5"
+    >
+      <Select value={time} onValueChange={handleSelectChange}>
         <SelectTrigger className="w-[180px] bg-[#141A29] text-white border border-[#2c2c2c]">
           <SelectValue placeholder="THIS YEAR" />
         </SelectTrigger>
@@ -53,5 +36,5 @@ export default function YearDropDown() {
         </SelectContent>
       </Select>
     </div>
-  )
+  );
 }

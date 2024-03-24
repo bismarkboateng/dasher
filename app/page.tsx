@@ -6,22 +6,32 @@ import YearDropDown from "@/components/YearDropDown"
 import TotalSales from "@/components/TotalSales"
 import ProductRevenue from "@/components/ProductRevenue"
 import { analytics } from "@/lib/data"
-// import { useSelectStore } from "@/store/SelectStore"
+import { useSelectStore } from "@/store/SelectStore"
 import { getUsers } from "@/lib/getDataFromFirebase"
 import SalePerProductGraph from "@/components/SalePerProductGraph"
+import { getDataBasedOnTime } from "@/lib/getDataFromFirebase"
+import { MdOutlineRemoveRedEye } from "react-icons/md"
+import { database } from "@/lib/firebase"
+
 
 
 
 export default function Home() {
-  const [info, setInfo] = useState()
-
-
+  const time = useSelectStore(state => state.time)
+  const [dataBasedOnTime, setDataBasedOnTime] = useState<null | UserFromFirebase[]>(null)
+  
   useEffect(() => {
-    const getInfo = async () => {
-      const users = await getUsers()
-      console.log(users)
+    const getData = async () => {
+      const res = await getDataBasedOnTime(time)
+      setDataBasedOnTime(res)
     }
-  }, [])
+
+    getData()
+  }, [time])
+
+  // use the fetch data and sort them into 
+  // { name, price }, will be used to 
+  // change the graph 
 
 
   return (
@@ -37,6 +47,21 @@ export default function Home() {
       </div>
       <section className="flex flex-col gap-2 md:grid md:grid-cols-2 xl:grid-cols-3
       xl:w-[95%] mx-auto">
+        <div className="flex flex-row items-center justify-center gap-1
+        bg-[#141A29] w-[85%] md:w-[90%] xl:w-[95%] mx-auto rounded-md py-4 mt-2 border border-[#2c2c2c]">
+          <div className="flex flex-row items-center w-[40%] xl:w-[60%] gap-2">
+            <div className="bg-[#2c2c2c] p-2 rounded-full">
+             <MdOutlineRemoveRedEye fontSize={20} className="text-white font-bold"/>
+            </div>
+            <div>
+              <p className="text-[#D7D7D8] text-xs">Users</p>
+              <div className="flex flex-row items-center gap-3">
+                <p className="text-white text-2xl font-bold">{dataBasedOnTime?.length || 0}</p>
+                <div className="text-white text-xs">34%</div>
+              </div>
+            </div>
+          </div>
+        </div>
        {analytics.map(item => (
         <div key={item.title} className="flex flex-row items-center justify-center gap-1
         bg-[#141A29] w-[85%] md:w-[90%] xl:w-[95%] mx-auto rounded-md py-4 mt-2 border border-[#2c2c2c]">

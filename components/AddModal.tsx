@@ -15,7 +15,7 @@ export default function AddModal() {
     setNewUser(prevUser => ({...prevUser, [name]: value}))
   }
 
-  const handleSubmit = (event: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
 
     handleCreateUser(newUser.first_name, newUser.email)

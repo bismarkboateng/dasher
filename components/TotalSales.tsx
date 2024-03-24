@@ -3,15 +3,25 @@
 import { useState, useEffect } from "react"
 import {
     BarChart, Bar, Rectangle, XAxis, YAxis,
-    CartesianGrid, Tooltip, Legend, 
+    Tooltip, Legend, 
     ResponsiveContainer
 } from 'recharts'
 
 import { data } from "@/lib/data"
+import { getUsers } from "@/lib/getDataFromFirebase"
 
 export default function TotalSales() {
-    // const [duration, setDuration] = useState("")
+    const [users, setUsers] = useState<null | UserFromFirebase[]>(null)
 
+    useEffect(() => {
+      const getData = async () => {
+        const res = await getUsers()
+        setUsers(res)
+      }
+      getData()
+    }, [])
+
+    useEffect(() => console.log(users), [users])
 
     return (
       <section className="w-full bg-[#141a29] border border-[#2c2c2c] p-2 rounded-md">
@@ -39,8 +49,7 @@ export default function TotalSales() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="pv" fill="" activeBar={<Rectangle fill="blue" stroke="blue" />} />
-            <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="blue" stroke="purple" />} />
+            <Bar dataKey="uv" fill="#82ca9d"/>
           </BarChart>
         </ResponsiveContainer>
         </section>

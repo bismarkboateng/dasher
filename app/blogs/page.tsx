@@ -22,7 +22,8 @@ export default async function BlogPage() {
       <h1 className="text-white font-bold text-2xl pt-5
       w-[90%] mx-auto">Blogs</h1>
 
-      <section className="w-[90%] mx-auto mt-5">
+      <section className="w-[90%] mx-auto mt-5 grid grid-cols-2
+      md:grid-cols-3 gap-x-2">
         {blogs.map((blog) => (
           <Link href={`/blogs/${blog.id}`} key={blog.id}
           className="">

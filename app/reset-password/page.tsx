@@ -10,8 +10,9 @@ export default function ResetPasswordPage() {
   const handleResetPassword = useAuthStore(state => state.handleResetPassword)
   const router = useRouter()
 
-  const handleSubmit = (event: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
+    console.log("prevented default")
     handleResetPassword(email)
     router.push("/sign-in")
     setEmail("")

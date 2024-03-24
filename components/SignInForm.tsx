@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, ChangeEvent, MouseEvent, MouseEventHandler } from "react"
+import { useState, ChangeEvent, MouseEvent, MouseEventHandler, FormEvent } from "react"
 import Link from "next/link"
 import { TailSpin } from "react-loader-spinner"
 import { ToastContainer, toast } from "react-toastify"
@@ -23,7 +23,7 @@ export default function Form() {
     setUser(prevUser => ({...prevUser, [name]: value }))
   }
 
-  const handleSubmit = (event: MouseEventHandler<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     handleSignIn(createdUser?.name, user.email, user.password)
     setUser({ email: "", password: ""})
@@ -59,8 +59,7 @@ export default function Form() {
   } else {
     buttonState = (
       <button
-        className="bg-[#2C2C2C] text-white py-2 px-5 rounded-md cursor-pointer"
-        onClick={handleSubmit}>
+        className="bg-[#2C2C2C] text-white py-2 px-5 rounded-md cursor-pointer">
         Sign in
       </button>
     )

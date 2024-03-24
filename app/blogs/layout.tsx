@@ -11,7 +11,7 @@ export default function BlogLayout({
 }>) {
 
   return (
-    <section>
+    <section className="bg-black h-[100vh]">
      {children}
     </section>
   );

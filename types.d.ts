@@ -68,8 +68,19 @@ type AuthStore = {
     signUpError: string;
 }
 
-type SelectType = {
-    selectedValue: string;
-    data: [],
-    getSelectedValueInfoFromFirebase: () => void;
+type DetailBlog = {
+    author: string;  
+    content: string;
+    title: string;
+    date_posted: string;
+}
+
+type SelectStore = {
+    time: string;
+    handleSetTime: (time) => void;
+}
+
+type GraphData = {
+    name: string;
+    price: string;
 }
