@@ -25,6 +25,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Dasher</title>
+      </head>
       <body className={roboto.className}>
         <main>
           <section className="lg:hidden">
@@ -35,11 +38,11 @@ export default function RootLayout({
             </div>
           </section>
           <section className="hidden lg:w-full lg:flex lg:flex-row lg:items-start">
-           <div className="lg:w-[25%] fixed z-[3000] top-0 left-0">
+           <div className="lg:w-[20%] fixed z-[3000] top-0 left-0">
              <Sidebar />
            </div>
-           <div className="lg:w-[75%] text-2xl">
-            <div className="lg:ml-[33%] w-full">
+           <div className="lg:w-[80%] text-2xl">
+            <div className="lg:ml-[25%] flex-1 w-full">
              <Navbar />
              {children}
             </div>

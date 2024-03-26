@@ -12,13 +12,12 @@ export default function ResetPasswordPage() {
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    console.log("prevented default")
     handleResetPassword(email)
     router.push("/sign-in")
     setEmail("")
   }
   return (
-    <section className="bg-[#000] text-white pt-24 h-screen overflow-scroll">
+    <section className="bg-[#000] text-white pt-24 h-screen overflow-hidden">
       <section className="w-[90%] mx-auto">
         <h2 className="text-white text-2xl font-semibold
         leading-5">Reset your password</h2>

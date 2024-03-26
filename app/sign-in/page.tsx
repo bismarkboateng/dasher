@@ -3,7 +3,7 @@ import SignInForm from "@/components/SignInForm"
 
 export default function SignInPage() {
   return (
-    <section className="bg-[#000] text-white pt-24 h-screen overflow-scroll">
+    <section className="bg-[#000] text-white pt-24 h-screen overflow-hidden">
       <section className="w-[90%] mx-auto">
         <h2 className="text-white text-2xl font-semibold
         leading-5">Sign In</h2>

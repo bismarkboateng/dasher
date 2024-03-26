@@ -27,7 +27,7 @@ export default function Form() {
     event.preventDefault()
     handleSignIn(createdUser?.name, user.email, user.password)
     setUser({ email: "", password: ""})
-    router.push("/profile")
+    router.push("/")
   }
 
   let buttonState;

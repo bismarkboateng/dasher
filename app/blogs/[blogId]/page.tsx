@@ -32,7 +32,7 @@ export default async function BlogDetailPage({
 
         <p className="text-white mt-10 w-[95%] mx-auto leading-8">{document.content}</p>
 
-        <div className="text-white text-xs ml-2 mt-10">
+        <div className="text-white text-xs ml-2 2xl:ml-10 mt-10">
           Posted on <span className="font-bold">{document.date_posted}</span> By{" "}
           <span className="font-bold">{document.author}</span>
         </div>

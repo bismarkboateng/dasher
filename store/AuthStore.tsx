@@ -53,7 +53,6 @@ export const useAuthStore = create<AuthStore>((set) => ({
       signOut(auth).then(() => {
         set(state => ({...state, user: null}))
         localStorage.clear()
-        console.log("Signed Out")
       }).catch((error) => {
         console.log(error)
       });
@@ -62,7 +61,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     handleResetPassword: (email) => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        console.log("Password reset email sent!")
+        alert("A password reset link has been sent to your email!")
       })
       .catch((error) => {
         const errorCode = error.code;

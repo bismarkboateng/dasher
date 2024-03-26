@@ -11,7 +11,6 @@ export default function Search() {
 
   const handleSearch = (event:  FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log(searchTerm)
 
     setSearchTerm("")
   }
